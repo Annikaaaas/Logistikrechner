@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="C:\Users\Administrator\Desktop\Logistik_Kalkulator\templates\style.css">
+    <style>
+        body {
+            background-color: #efd6be; /* Beige Hintergrundfarbe */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #cba79a; /* Helleres Beige für die Überschrift */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 50%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(21, 20, 20, 0.1);
+            background-color: white; /* Weißer Hintergrund für die Tabelle */
+        }
+
+        table, th, td {
+            border: 1px solid #c1c1c1;
+            border-radius: 3px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #cba79a; /* Helleres Beige für Tabellenüberschriften */
+            color: white;
+        }
+    </style>
+    <title>Ergebnisse</title>
+</head>
+<body>
+    <h1>Ergebnisse</h1>
+    <table>
+        <tr>
+            <th>Beschreibung</th>
+            <th>Wert</th>
+        </tr>
+        <tr>
+            <td>Gesamtkosten mit Versand+ Versandmaterialien </td>
+            <td>{{ total_cost_with_shipping_and_materials }} €</td>
+        </tr>
+        <tr>
+            <td>Gesamtkosten ohne Versand</td>
+            <td>{{ total_cost_without_shipping }} €</td>
+        </tr>
+        <tr>
+            <td>Gesamtnetto-Warenkorbwert</td>
+            <td>{{ total_netto_value }} €</td>
+        </tr>
+        
+        
+        <tr>
+            <td>Versandkosten</td>
+            <td>{{ shipping_message }}</td>
+        </tr>
+        
+        
+        <tr>
+            <td>Prozentualer Anteil der Gesamtkosten am Gesamtnettowarenwert (mit Versand)</td>
+            <td>{{ percentage_cost_with_shipping }} %</td>
+        </tr>
+        <tr>
+            <td>Prozentualer Anteil der Gesamtkosten am Gesamtnettowarenwert (ohne Versand)</td>
+            <td>{{ percentage_cost_without_shipping }} %</td>
+        </tr>
+    </table>
+</body>
+</html>
