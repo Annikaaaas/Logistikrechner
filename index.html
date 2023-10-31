@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #efd6be; /* Beige Hintergrundfarbe */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #cba79a; /* Helleres Beige für die Überschrift */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        form {
+            background-color: white;
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #cba79a; /* Wieder das hellere Beige für den Submit-Button */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #9a7569; /* Dunkleres Beige im Hover-Zustand */
+        }
+
+        #logo-container {
+            text-align: center;
+        }
+
+        #logo {
+            max-width: 100%; /* Das Bild wird auf die maximale Breite des Containers beschränkt */
+            height: auto; /* Das Seitenverhältnis des Bildes bleibt erhalten */
+        }
+    </style>
+    <title>Logistikrechner</title>
+</head>
+<body>
+    <h1>Logistikrechner</h1>
+    <form method="POST">
+        <div id="logo-container">
+            <img id="logo" src="https://drvivienkarl.com/cdn/shop/files/dvk_logo_black_rbg_1.jpg?v=1689758654&width=2048" alt="Logo">
+        </div>
+        <label for="calculation_type">Berechnungstyp auswählen:</label>
+        <select name="calculation_type" id="calculation_type">
+            <option value="B2B">B2B</option>
+            <option value="Amazon">Amazon</option>
+            <option value="B2C">B2C</option>
+        </select>
+
+        <label for="quantity_intimcreme">Menge Intimcreme:</label>
+        <input type="number" name="quantity_intimcreme" required><br>
+
+        <label for "quantity_lotion">Menge Intimwaschlotion:</label>
+        <input type="number" name="quantity_lotion" required><br>
+
+        <label for="quantity_reisegroesse">Menge Intimcreme Reisegröße:</label>
+        <input type="number" name="quantity_reisegroesse" required><br>
+
+        <input type="submit" value="Berechnen">
+
+       
+    </form>
+</body>
+</html>
