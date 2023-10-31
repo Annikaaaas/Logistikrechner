@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Logistikrechner</title>
     <style>
         body {
             background-color: #efd6be; /* Beige Hintergrundfarbe */
@@ -51,23 +52,34 @@
             background-color: #9a7569; /* Dunkleres Beige im Hover-Zustand */
         }
 
-        #logo-container {
-            text-align: center;
+        table {
+            width: 50%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(21, 20, 20, 0.1);
+            background-color: white; /* Weißer Hintergrund für die Tabelle */
         }
 
-        #logo {
-            max-width: 100%; /* Das Bild wird auf die maximale Breite des Containers beschränkt */
-            height: auto; /* Das Seitenverhältnis des Bildes bleibt erhalten */
+        table, th, td {
+            border: 1px solid #c1c1c1;
+            border-radius: 3px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #cba79a; /* Helleres Beige für Tabellenüberschriften */
+            color: white;
         }
     </style>
-    <title>Logistikrechner</title>
 </head>
 <body>
     <h1>Logistikrechner</h1>
     <form method="POST">
-        <div id="logo-container">
-            <img id="logo" src="https://drvivienkarl.com/cdn/shop/files/dvk_logo_black_rbg_1.jpg?v=1689758654&width=2048" alt="Logo">
-        </div>
         <label for="calculation_type">Berechnungstyp auswählen:</label>
         <select name="calculation_type" id="calculation_type">
             <option value="B2B">B2B</option>
@@ -85,20 +97,40 @@
         <input type="number" name="quantity_reisegroesse" required><br>
 
         <input type="submit" value="Berechnen">
-
-       
     </form>
-    <script>
-        function redirectToResultPage() {
-            // Hier kannst du die Logik für die Eingabeprüfung durchführen, wenn erforderlich
-            // Beispiel: Wenn eine bestimmte Bedingung erfüllt ist, weiterleiten
-            // if (bedingung_erfuellt) {
-            //     window.location.href = "result.html";
-            // }
 
-            // Beispiel: Direkte Weiterleitung
-            window.location.href = "result.html";
-        }
-    </script>
+    {% if total_cost_with_shipping_and_materials is defined %}
+    <h1>Ergebnisse</h1>
+    <table>
+        <tr>
+            <th>Beschreibung</th>
+            <th>Wert</th>
+        </tr>
+        <tr>
+            <td>Gesamtkosten mit Versand + Versandmaterialien</td>
+            <td>{{ total_cost_with_shipping_and_materials }} €</td>
+        </tr>
+        <tr>
+            <td>Gesamtkosten ohne Versand</td>
+            <td>{{ total_cost_without_shipping }} €</td>
+        </tr>
+        <tr>
+            <td>Gesamtnetto-Warenkorbwert</td>
+            <td>{{ total_netto_value }} €</td>
+        </tr>
+        <tr>
+            <td>Versandkosten</td>
+            <td>{{ shipping_message }}</td>
+        </tr>
+        <tr>
+            <td>Prozentualer Anteil der Gesamtkosten am Gesamtnettowarenwert (mit Versand)</td>
+            <td>{{ percentage_cost_with_shipping }} %</td>
+        </tr>
+        <tr>
+            <td>Prozentualer Anteil der Gesamtkosten am Gesamtnettowarenwert (ohne Versand)</td>
+            <td>{{ percentage_cost_without_shipping }} %</td>
+        </tr>
+    </table>
+    {% endif %}
 </body>
 </html>
